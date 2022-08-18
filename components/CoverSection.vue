@@ -27,8 +27,20 @@
 </template>
 
 <script>
+import $ from 'jquery'
 import NavBar from "../components/NavBar.vue";
+
 export default {
     components: { NavBar },
+    mounted() {
+        $(window).scroll(function () {
+            const percent = $(document).scrollTop() / $(document).height() * 100;
+            if (percent < 2) {
+                $("div#header").fadeIn(400);
+            } else {
+                $("div#header").fadeOut(400);
+            }
+        });
+    }
 }
 </script>
