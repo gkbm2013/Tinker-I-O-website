@@ -44,6 +44,7 @@ export default {
   i18n: {
     lazy: true,
     langDir: "~/locales/",
+    defaultLocale: "zh_tw",
     locales: [
       { code: 'en', iso: 'en-US', file: 'en.js', dir: 'auto' },
       { code: 'zh_tw', iso: 'zh-TW', file: 'zh_tw.js', dir: 'auto' },
