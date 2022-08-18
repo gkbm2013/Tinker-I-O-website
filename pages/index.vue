@@ -12,16 +12,16 @@ import IntroSection from "../components/IntroSection.vue";
 import AuthorIntroSection from "../components/AuthorIntroSection.vue";
 
 export default {
-    name: "IndexPage",
-    components: { CoverSection, IntroSection, AuthorIntroSection },
-    head() {
-        return {
-            title: this.$nuxt._i18n.t("index"),
-        };
-    },
-    mounted: () => {
-        // console.log(window.$nuxt)
-    },
+  name: "IndexPage",
+  components: { CoverSection, IntroSection, AuthorIntroSection },
+  head() {
+    return {
+      title: this.$nuxt._i18n.t("index"),
+    };
+  },
+  mounted: () => {
+    // console.log(window.$nuxt)
+  },
 }
 </script>
 

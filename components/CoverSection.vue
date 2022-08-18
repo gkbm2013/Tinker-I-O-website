@@ -5,11 +5,7 @@
 
                 <div id="header" class="masthead clearfix">
                     <div class="inner">
-                        <nav>
-                            <ul class="nav masthead-nav">
-                                <!-- {{include_file="nav.html"}} -->
-                            </ul>
-                        </nav>
+                        <NavBar></NavBar>
                     </div>
                 </div>
 
@@ -29,3 +25,10 @@
         </div>
     </div>
 </template>
+
+<script>
+import NavBar from "../components/NavBar.vue";
+export default {
+    components: { NavBar },
+}
+</script>
