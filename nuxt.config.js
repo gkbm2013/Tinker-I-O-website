@@ -38,7 +38,22 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
+    '@nuxtjs/i18n',
   ],
+
+  i18n: {
+    lazy: true,
+    langDir: "~/locales/",
+    locales: [
+      { code: 'en', iso: 'en-US', file: 'en.js', dir: 'auto' },
+      { code: 'zh_tw', iso: 'zh-TW', file: 'zh_tw.js', dir: 'auto' },
+    ],
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root',  // recommended
+    }
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
