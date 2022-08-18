@@ -72,9 +72,7 @@
             <div>
                 <h2 class="featurette-heading">index_features_more</h2>
                 <p class="lead">
-                    <a 
-                        href="https://minecraft.curseforge.com/projects/tinker-i-o#title-3"
-                        target="_blank"
+                    <a href="https://minecraft.curseforge.com/projects/tinker-i-o#title-3" target="_blank"
                         class="btn btn-lg btn-primary">btn_curseforge</a>
                 </p>
             </div>
@@ -84,3 +82,44 @@
 
     </div>
 </template>
+
+<script>
+import $ from 'jquery'
+
+export default {
+    mounted() {
+        $(window).on('hashchange', function (e) {
+            switchByTag();
+        });
+
+        $(document).ready(function () {
+            switchByTag();
+        });
+
+        function switchByTag() {
+            const tag = getUrlTag();
+            if (tag === "features") {
+                scrollTo("feature");
+            } else if (tag === "authors") {
+                scrollTo("author");
+            }
+        }
+
+        function getUrlTag() {
+            const url = decodeURIComponent(location.href);
+            const idx = url.indexOf("#");
+            const hash = idx !== -1 ? url.substring(idx + 1).split("#")[0] : "";
+            return hash;
+        }
+
+        function scrollTo(eleId) {
+            $(document).ready(function () {
+                $('html, body').animate({
+                    scrollTop: $("#" + eleId).offset().top
+                }, 500);
+            });
+        }
+    }
+}
+
+</script>
