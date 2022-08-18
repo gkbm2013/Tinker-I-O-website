@@ -21,7 +21,7 @@ export default {
         body: true,
       },
       {
-        src: "~/assets/bootstrap.min.js",
+        src: "js/bootstrap.min.js",
         body: true,
       },
       {
