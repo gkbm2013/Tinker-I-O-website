@@ -15,6 +15,21 @@ export default {
       { name: 'format-detection', content: 'telephone=no' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    script: [
+      {
+        src: "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js",
+        body: true,
+      },
+      {
+        src: "~/assets/bootstrap.min.js",
+        body: true,
+      },
+      {
+        src: "https://buttons.github.io/buttons.js",
+        body: true,
+        async: true,
+      },
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
