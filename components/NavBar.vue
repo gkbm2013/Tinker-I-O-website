@@ -1,6 +1,6 @@
 <template>
     <nav>
-        <ul class="nav masthead-nav">
+        <ul :class="light? 'masthead-nav-light':'masthead-nav'" class="nav">
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                     Language
@@ -20,3 +20,15 @@
         </ul>
     </nav>
 </template>
+
+<script>
+export default {
+    props: {
+        light: Boolean
+    },
+    mounted() {
+        console.log("OK");
+        console.log(this.light);
+    }
+};
+</script>
