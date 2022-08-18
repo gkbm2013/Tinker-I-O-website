@@ -1,12 +1,15 @@
 <template>
-  <h1>hello</h1>
+  <h1>{{ $t('index') }}</h1>
 </template>
 
 <script>
 export default {
   name: 'IndexPage',
-  head: {
-    title: "Index"
-  }
+  head() {
+    return {title: this.$nuxt._i18n.t("index")};
+  },
+  mounted: () => {
+    // console.log(window.$nuxt)
+  },
 }
 </script>
