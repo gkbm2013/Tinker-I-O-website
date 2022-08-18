@@ -18,7 +18,13 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: [
+    "~/assets/css/bootstrap.min.css",
+    "~/assets/css/bootstrap-social.css",
+    "~/assets/css/font-awesome.min.css",
+    "~/assets/css/style-carousel.css",
+    "~/assets/css/style-cover.css"
+  ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
@@ -36,8 +42,6 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    // https://go.nuxtjs.dev/bootstrap
-    'bootstrap-vue/nuxt',
     '@nuxtjs/i18n',
   ],
 
