@@ -17,7 +17,7 @@
           </div>
         </div>
       </div>
-      <DownloadCounts></DownloadCounts>
+      <DownloadCounts :total="downloadCounts.total" :monthly="downloadCounts.monthly" :weekly="downloadCounts.weekly" :daily="downloadCounts.daily"></DownloadCounts>
     </div>
 
     <div class="container marketing">
@@ -64,9 +64,15 @@ export default {
   components: { DownloadCounts, DownloadsTable, FooterSection },
   data() {
     return {
+      downloadCounts: {
+        total: 0,
+        monthly: 0,
+        weekly: 0,
+        daily: 0
+      },
       downloadsData: {
         release: []
-      }
+      },
     };
   }
 }
