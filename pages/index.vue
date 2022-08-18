@@ -3,6 +3,7 @@
     <CoverSection></CoverSection>
     <IntroSection></IntroSection>
     <AuthorIntroSection></AuthorIntroSection>
+    <FooterSection></FooterSection>
   </div>
 </template>
 
