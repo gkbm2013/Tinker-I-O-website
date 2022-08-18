@@ -72,7 +72,9 @@
             <div>
                 <h2 class="featurette-heading">index_features_more</h2>
                 <p class="lead">
-                    <a href="https://minecraft.curseforge.com/projects/tinker-i-o#title-3" target="_blank"
+                    <a 
+                        href="https://minecraft.curseforge.com/projects/tinker-i-o#title-3"
+                        target="_blank"
                         class="btn btn-lg btn-primary">btn_curseforge</a>
                 </p>
             </div>
