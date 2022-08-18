@@ -12,11 +12,11 @@
                 <div class="inner cover">
                     <img class="img-responsive" src="~/assets/images/logo-v2.png">
                     <div class="text-background">
-                        <h1>index_home_title</h1>
-                        <p class="lead">index_home_content</p>
+                        <h1>{{$t("index_home_title")}}</h1>
+                        <p class="lead">{{$t("index_home_content")}}</p>
                         <p class="lead">
-                            <a href="downloads/" class="btn btn-lg btn-default">btn_downloads</a>
-                            <a href="#features" class="btn btn-lg btn-default">btn_features</a>
+                            <a href="downloads/" class="btn btn-lg btn-default">{{$t("btn_downloads")}}</a>
+                            <a href="#features" class="btn btn-lg btn-default">{{$t("btn_features")}}</a>
                         </p>
                     </div>
                 </div>

@@ -12,11 +12,11 @@
                     <!--<li><a href="#">Help us for translation!</a></li>-->
                 </ul>
             </li>
-            <li><a href="#home">{{ ctx = "nav_home" }}</a></li>
-            <li><a href="#features">{{ ctx = "nav_features" }}</a></li>
-            <li><a href="#authors">{{ ctx = "nav_authors" }}</a></li>
-            <li><a href="downloads">{{ ctx = "nav_downloads" }}</a></li>
-            <li><a href="https://github.com/gkbm2013/tinker-IO" target="_blank">{{ ctx = "nav_github" }}</a></li>
+            <li><a href="#home">{{ $t("nav_home") }}</a></li>
+            <li><a href="#features">{{ $t("nav_features") }}</a></li>
+            <li><a href="#authors">{{ $t("nav_authors") }}</a></li>
+            <li><a href="downloads">{{ $t("nav_downloads") }}</a></li>
+            <li><a href="https://github.com/gkbm2013/tinker-IO" target="_blank">{{ $t("nav_github") }}</a></li>
         </ul>
     </nav>
 </template>
@@ -25,10 +25,6 @@
 export default {
     props: {
         light: Boolean
-    },
-    mounted() {
-        console.log("OK");
-        console.log(this.light);
     }
 };
 </script>

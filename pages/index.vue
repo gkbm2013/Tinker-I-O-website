@@ -17,7 +17,7 @@ export default {
   components: { CoverSection, IntroSection, AuthorIntroSection },
   head() {
     return {
-      title: this.$nuxt._i18n.t("index"),
+      title: this.$nuxt._i18n.t("head_title"),
     };
   },
   mounted: () => {
