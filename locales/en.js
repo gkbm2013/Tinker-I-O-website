@@ -51,7 +51,11 @@ const message = {
    "downloads_count_monthly":"Monthly Downloads",
    "downloads_count_weekly":"Weekly Downloads",
    "downloads_count_daily":"Daily Downloads",
-   "downloads_more": "More version"
+   "downloads_more": "More version",
+
+   "downloads_error_statistic": "Failed to get download statistic.",
+   "downloads_error_statistic_report": "Report the issue.",
+   "downloads_error_statistic_error_msg": "Error Message:",
 };
 
 export default message;

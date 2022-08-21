@@ -51,7 +51,11 @@ const message = {
    "downloads_count_monthly":"每月下載量",
    "downloads_count_weekly":"每周下載量",
    "downloads_count_daily":"每日下載量",
-   "downloads_more": "更多版本"
+   "downloads_more": "更多版本",
+
+   "downloads_error_statistic": "無法取得下載統計",
+   "downloads_error_statistic_report": "回報錯誤",
+   "downloads_error_statistic_error_msg": "錯誤訊息:",
 };
 
 export default message;

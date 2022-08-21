@@ -17,7 +17,7 @@
           </div>
         </div>
       </div>
-      <DownloadCounts :total="downloadCounts.total" :monthly="downloadCounts.monthly" :weekly="downloadCounts.weekly" :daily="downloadCounts.daily"></DownloadCounts>
+      <DownloadCounts api-key="AIzaSyAJLUFaXDpeCKQCWvn2jsjXG8IZGOava80" sheet-id="145xJiXMwozR8AyCxW1mjXgMZ0UWxNIcAAORbdGysjgQ" sheet-name="statistic"></DownloadCounts>
     </div>
 
     <div class="container marketing">
@@ -36,7 +36,7 @@
       </DownloadsTable>
       <hr class="featurette-divider" />
 
-      <DownloadsTable 
+      <DownloadsTable
         :title="$t('downloads_popular_title')" :explaination="$t('downloads_popular_content')"
         status="release"></DownloadsTable>
     </div>
@@ -44,7 +44,7 @@
     <div>
       <h2 class="featurette-heading">{{ $t("downloads_more") }}</h2>
       <p class="lead">
-        <a 
+        <a
           href="https://www.curseforge.com/minecraft/mc-mods/tinker-i-o/files" target="_blank"
           class="btn btn-lg btn-primary">{{ $t("btn_curseforge") }}</a>
       </p>
@@ -65,16 +65,16 @@ export default {
   data() {
     return {
       downloadCounts: {
-        total: 0,
-        monthly: 0,
-        weekly: 0,
-        daily: 0
+        totalDownloads: "-",
+        monthlyDownloads: "-",
+        weeklyDownloads: "-",
+        dailyDownloads: "-"
       },
       downloadsData: {
         release: []
       },
     };
-  }
+  },
 }
 </script>
 
