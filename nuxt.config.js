@@ -53,6 +53,7 @@ export default {
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/stylelint
     '@nuxtjs/stylelint-module',
+    '@nuxtjs/google-analytics',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -73,6 +74,10 @@ export default {
       cookieKey: 'i18n_redirected',
       redirectOn: 'root',  // recommended
     }
+  },
+
+  googleAnalytics: {
+    id: 'UA-54046944-3'
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
