@@ -21,7 +21,7 @@ export default {
         body: true,
       },
       {
-        src: "js/bootstrap.min.js",
+        src: "/js/bootstrap.min.js",
         body: true,
       },
       {
@@ -63,7 +63,7 @@ export default {
   i18n: {
     lazy: true,
     langDir: "~/locales/",
-    defaultLocale: "zh_tw",
+    defaultLocale: "en",
     locales: [
       { code: 'en', iso: 'en-US', file: 'en.js', dir: 'auto' },
       { code: 'zh_tw', iso: 'zh-TW', file: 'zh_tw.js', dir: 'auto' },
