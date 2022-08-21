@@ -78,6 +78,11 @@ export default {
       },
     };
   },
+  head() {
+    return {
+      title: this.$nuxt._i18n.t("head_title"),
+    };
+  },
 }
 </script>
 
