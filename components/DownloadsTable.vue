@@ -5,7 +5,10 @@
         </div>
         <div class="col-md-7 table-responsive">
             <h1>{{ title }}</h1>
-            <h3>{{ explaination }}</h3>
+            <h3>
+                {{ explaination }}
+                <a v-if="status !== 'release'" class="github-button" href="https://github.com/gkbm2013/tinker-IO/issues" data-size="large" aria-label="Issue gkbm2013/tinker-IO on GitHub">Issue</a>
+            </h3>
             <table class="table">
                 <thead>
                     <tr>
