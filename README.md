@@ -11,6 +11,15 @@ Though this is a static website, the download counts and links are automatically
 ## Report Issue
 If there are any issue related to the website, please report it in the [Tinker I/O repository](https://github.com/gkbm2013/tinker-IO).
 
+## Translation guide
+It is welcome for everyone to translate this website or the mod itself. If you are interested in translating this website, please fork this repository and translate the language file. The language files are located at the [`locales` directory](https://github.com/gkbm2013/Tinker-I-O-website/tree/main/locales). For translation, you can copy `en.js`, and rename the new file to the name of the target language (e.g. `en_gb.js`). Next, translate the new file, and commit it to the forked repository.
+
+After translation, you can create a pull request in this repository. Once the pull request is accepted, your GitHub name will be displayed on the website to appreciate your contribution.
+
+If you are interested in translating Tinker I/O mod, please go to the [Tinker I/O main repository](https://github.com/gkbm2013/tinker-IO).
+
+If you have any question, feel free to contact us by creating an issue in the [Tinker I/O main repository](https://github.com/gkbm2013/tinker-IO).
+
 ## Build Setup
 
 ```bash
