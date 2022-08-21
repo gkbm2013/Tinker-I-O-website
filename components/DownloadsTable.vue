@@ -7,7 +7,9 @@
             <h1>{{ title }}</h1>
             <h3>
                 {{ explaination }}
-                <a v-if="status !== 'release'" class="github-button" href="https://github.com/gkbm2013/tinker-IO/issues" data-size="large" aria-label="Issue gkbm2013/tinker-IO on GitHub">Issue</a>
+                <a 
+                    v-if="status !== 'release'" class="github-button" href="https://github.com/gkbm2013/tinker-IO/issues"
+                    data-size="large" aria-label="Issue gkbm2013/tinker-IO on GitHub">Issue</a>
             </h3>
             <table class="table">
                 <thead>
@@ -19,11 +21,31 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <tr v-if="!loading && !error && tableContents.length == 0">
+                        <td colspan="4"> No data </td>
+                    </tr>
+                    <tr v-if="!loading && error">
+                        <td colspan="4">
+                            <i 
+                                class="fa fa-exclamation-triangle" aria-hidden="true"
+                                style="font-size: 32px; color: #F33;"></i> <br />
+                            <span style="font-size: 20px;">
+                                {{ $t("downloads_error_statistic") }}
+                                <a href="https://github.com/gkbm2013/tinker-IO/issues">{{
+                                        $t("downloads_error_statistic_report")
+                                }}</a>
+                            </span>
+                            <br />
+                            <span style="font-size: 16px;">
+                                {{ `${$t("downloads_error_statistic_error_msg")} ${errorMessage}` }}
+                            </span>
+                        </td>
+                    </tr>
                     <tr v-for="(item, index) in tableContents" :key="index">
-                        <td>{{item.name}}</td>
-                        <td>{{item.gameVersion}}</td>
-                        <td>{{item.updateDate}}</td>
-                        <td>{{item.downloads}}</td>
+                        <td><a :href="item.url" target="_blank">{{ item.displayName }}</a></td>
+                        <td>{{ item.gameVersion }}</td>
+                        <td>{{ parseDate(item.fileDate) }}</td>
+                        <td>{{ item.downloadCount }}</td>
                     </tr>
                 </tbody>
             </table>
@@ -32,6 +54,8 @@
 </template>
 
 <script>
+const GSheetReader = require('g-sheets-api');
+
 export default {
     name: "DownloadsTable",
     props: {
@@ -47,12 +71,18 @@ export default {
             type: String,
             required: true,
         },
-        data: {
-            type: Array,
-            default() {
-                return [];
-            },
-        }
+        apiKey: {
+            type: String,
+            required: true,
+        },
+        sheetId: {
+            type: String,
+            required: true,
+        },
+        sheetName: {
+            type: String,
+            required: true,
+        },
     },
     data() {
         return {
@@ -60,7 +90,10 @@ export default {
                 backgroundColor: "rgb(140 175 98)"
             },
             flag: "",
-            tableContents: this.data,
+            tableContents: [],
+            loading: true,
+            error: false,
+            errorMessage: "",
         };
     },
     created() {
@@ -77,5 +110,42 @@ export default {
             throw new Error("Invalid status");
         }
     },
+    mounted() {
+        GSheetReader({
+            apiKey: this.apiKey,
+            sheetId: this.sheetId,
+            sheetName: this.sheetName, // if sheetName is supplied, this will take precedence over sheetNumber
+            returnAllResults: false,
+        }, results => {
+            this.loading = false;
+            this.tableContents = results;
+        }, error => {
+            this.loading = false;
+            this.errorMessage = error;
+            this.error = true;
+        });
+    },
+    methods: {
+        parseDate(time) {
+            if (typeof time === "string") {
+                time = new Date(time);
+            }
+            return time.getFullYear() + "-" + this.timeFix(time.getMonth() + 1) + "-" + this.timeFix(time.getDate()) + " " + this.timeFix(time.getHours()) + ":" + this.timeFix(time.getMinutes()) + ":" + this.timeFix(time.getSeconds());
+        },
+        timeFix(num){
+            const n = parseInt(num);
+            if(n < 10){
+                return "0" + num;
+            }else{
+                return num;
+            }
+        }
+    },
 }
 </script>
+
+<style>
+.table>thead>tr>th {
+    text-align: center;
+}
+</style>

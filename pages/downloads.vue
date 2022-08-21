@@ -25,20 +25,23 @@
 
       <DownloadsTable
         :title="$t('downloads_recommend_title')" :explaination="$t('downloads_recommend_content')"
-        status="release" :data="downloadsData.release"></DownloadsTable>
-      <hr class="featurette-divider" />
-
-      <DownloadsTable :title="$t('downloads_beta_title')" :explaination="$t('downloads_beta_content')" status="beta">
-      </DownloadsTable>
-      <hr class="featurette-divider" />
-
-      <DownloadsTable :title="$t('downloads_alpha_title')" :explaination="$t('downloads_alpha_content')" status="alpha">
-      </DownloadsTable>
-      <hr class="featurette-divider" />
+        status="release" :data="downloadsData.release"
+        api-key="AIzaSyAJLUFaXDpeCKQCWvn2jsjXG8IZGOava80" sheet-id="145xJiXMwozR8AyCxW1mjXgMZ0UWxNIcAAORbdGysjgQ" sheet-name="recommendation"></DownloadsTable>
 
       <DownloadsTable
-        :title="$t('downloads_popular_title')" :explaination="$t('downloads_popular_content')"
-        status="release"></DownloadsTable>
+        :title="$t('downloads_beta_title')" :explaination="$t('downloads_beta_content')" status="beta"
+        api-key="AIzaSyAJLUFaXDpeCKQCWvn2jsjXG8IZGOava80" sheet-id="145xJiXMwozR8AyCxW1mjXgMZ0UWxNIcAAORbdGysjgQ" sheet-name="beta">
+      </DownloadsTable>
+
+      <DownloadsTable
+        :title="$t('downloads_alpha_title')" :explaination="$t('downloads_alpha_content')" status="alpha"
+        api-key="AIzaSyAJLUFaXDpeCKQCWvn2jsjXG8IZGOava80" sheet-id="145xJiXMwozR8AyCxW1mjXgMZ0UWxNIcAAORbdGysjgQ" sheet-name="alpha">
+      </DownloadsTable>
+
+      <DownloadsTable
+        :title="$t('downloads_popular_title')" :explaination="$t('downloads_popular_content')" status="release"
+        api-key="AIzaSyAJLUFaXDpeCKQCWvn2jsjXG8IZGOava80" sheet-id="145xJiXMwozR8AyCxW1mjXgMZ0UWxNIcAAORbdGysjgQ" sheet-name="popular">
+      </DownloadsTable>
     </div>
 
     <div>
