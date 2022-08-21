@@ -56,6 +56,8 @@ const message = {
    "downloads_error_statistic": "Failed to get download statistic.",
    "downloads_error_statistic_report": "Report the issue.",
    "downloads_error_statistic_error_msg": "Error Message:",
+
+   "downloads_out_of_date": "Development is complete. This file is out of date!",
 };
 
 export default message;

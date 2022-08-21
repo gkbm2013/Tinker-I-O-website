@@ -3,7 +3,7 @@
         <div class="col-md-5 col-xs-12">
             <div class="versionDiv" :style="flagStyle">{{ flag }}</div>
         </div>
-        <div class="col-md-7 table-responsive">
+        <div class="col-md-7 table-responsive table-div">
             <h1>{{ title }}</h1>
             <h3>
                 {{ explaination }}
@@ -41,11 +41,15 @@
                             </span>
                         </td>
                     </tr>
-                    <tr v-for="(item, index) in tableContents" :key="index">
-                        <td><a :href="item.url" target="_blank">{{ item.displayName }}</a></td>
-                        <td>{{ item.gameVersion }}</td>
-                        <td>{{ parseDate(item.fileDate) }}</td>
-                        <td>{{ item.downloadCount }}</td>
+                    <tr 
+                        v-for="(item, index) in tableContents"
+                        :key="index"
+                        :class="isOutdated(item.fileDate)? 'tooltip-cover': ''">
+                        <td :class="isOutdated(item.fileDate)? 'outdated': ''"><a :href="item.url" target="_blank">{{ item.displayName }}</a></td>
+                        <td :class="isOutdated(item.fileDate)? 'outdated': ''">{{ item.gameVersion }}</td>
+                        <td :class="isOutdated(item.fileDate)? 'outdated': ''">{{ parseDate(item.fileDate) }}</td>
+                        <td :class="isOutdated(item.fileDate)? 'outdated': ''">{{ item.downloadCount }}</td>
+                        <span v-if="isOutdated(item.fileDate)" class="tooltiptext">{{ $t('downloads_out_of_date') }}</span>
                     </tr>
                 </tbody>
             </table>
@@ -139,13 +143,70 @@ export default {
             }else{
                 return num;
             }
+        },
+        isOutdated(time) {
+            if (this.status === "release") {
+                return false;
+            }
+
+            if (typeof time === "string") {
+                time = new Date(time);
+            }
+            
+            return new Date().getTime() - time > 90 * 24 * 60 * 60 * 1000;
         }
     },
 }
 </script>
 
 <style>
+.table-div {
+    padding-bottom: 30px;
+}
+
 .table>thead>tr>th {
     text-align: center;
+}
+
+.outdated {
+    text-decoration: line-through;
+    opacity: 0.3;
+}
+
+.tooltip-cover {
+    position: relative !important;
+}
+
+.tooltip-cover .tooltiptext {
+    width: auto;
+    font-size: 16px;
+    line-height: 18px;
+    visibility: hidden;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 50%;
+    margin-left: -60px;
+}
+
+.tooltip-cover .tooltiptext::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent black;
+}
+
+.tooltip-cover:hover .tooltiptext {
+    visibility: visible;
 }
 </style>

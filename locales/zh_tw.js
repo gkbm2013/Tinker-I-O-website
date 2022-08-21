@@ -56,6 +56,8 @@ const message = {
    "downloads_error_statistic": "無法取得下載統計",
    "downloads_error_statistic_report": "回報錯誤",
    "downloads_error_statistic_error_msg": "錯誤訊息:",
+
+   "downloads_out_of_date": "開發完畢，本檔案已過時。",
 };
 
 export default message;
