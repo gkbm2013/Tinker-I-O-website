@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[7],{311:function(e,t,n){"use strict";n.r(t);var l=n(64),component=Object(l.a)({},(function(){var e=this,t=e._self._c;return t("footer",{staticStyle:{padding:"30px"}},[t("p",{staticClass:"lead"},[e._v("© "+e._s((new Date).getFullYear())+" Tinker I/O Team & TeamSLTW.")])])}),[],!1,null,null,null);t.default=component.exports}}]);
