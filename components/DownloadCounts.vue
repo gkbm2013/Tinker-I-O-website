@@ -1,33 +1,33 @@
 <template>
     <div class="row" style="color: #eee;">
         <div v-if="!error" class="col-lg-3">
-            <div class="circleDiv tooltip-cover">
+            <div class="circleDiv tooltip-cover2">
                 {{ nFormatter(downloadCounts.totalDownloads, 3) }}
-                <span class="tooltiptext">{{ commasFormatter(downloadCounts.totalDownloads) }}</span>
+                <span class="tooltiptext2">{{ commasFormatter(downloadCounts.totalDownloads) }}</span>
             </div>
             <h2 class="downloads_title">{{ $t("downloads_count_total") }}</h2>
         </div>
 
         <div v-if="!error" class="col-lg-3">
-            <div class="circleDiv tooltip-cover">
+            <div class="circleDiv tooltip-cover2">
                 {{ nFormatter(downloadCounts.monthlyDownloads, 3) }}
-                <span class="tooltiptext">{{ commasFormatter(downloadCounts.monthlyDownloads) }}</span>
+                <span class="tooltiptext2">{{ commasFormatter(downloadCounts.monthlyDownloads) }}</span>
             </div>
             <h2 class="downloads_title">{{ $t("downloads_count_monthly") }}</h2>
         </div>
 
         <div v-if="!error" class="col-lg-3">
-            <div class="circleDiv tooltip-cover">
+            <div class="circleDiv tooltip-cover2">
                 {{ nFormatter(downloadCounts.weeklyDownloads, 3) }}
-                <span class="tooltiptext">{{ commasFormatter(downloadCounts.weeklyDownloads) }}</span>
+                <span class="tooltiptext2">{{ commasFormatter(downloadCounts.weeklyDownloads) }}</span>
             </div>
             <h2 class="downloads_title">{{ $t("downloads_count_weekly") }}</h2>
         </div>
 
         <div v-if="!error" class="col-lg-3">
-            <div class="circleDiv tooltip-cover">
+            <div class="circleDiv tooltip-cover2">
                 {{ nFormatter(downloadCounts.dailyDownloads, 3) }}
-                <span class="tooltiptext"> {{ commasFormatter(downloadCounts.dailyDownloads) }} </span>
+                <span class="tooltiptext2"> {{ commasFormatter(downloadCounts.dailyDownloads) }} </span>
             </div>
             <h2 class="downloads_title">{{ $t("downloads_count_daily") }}</h2>
         </div>
@@ -139,11 +139,11 @@ export default {
 </script>
 
 <style>
-.tooltip-cover {
+.tooltip-cover2 {
     position: relative !important;
 }
 
-.tooltip-cover .tooltiptext {
+.tooltip-cover2 .tooltiptext2 {
     font-size: 16px;
     line-height: 16px;
     visibility: hidden;
@@ -160,7 +160,7 @@ export default {
     margin-left: -60px;
 }
 
-.tooltip-cover .tooltiptext::after {
+.tooltip-cover2 .tooltiptext2::after {
     content: "";
     position: absolute;
     bottom: 100%;
@@ -171,7 +171,7 @@ export default {
     border-color: transparent transparent black;
 }
 
-.tooltip-cover:hover .tooltiptext {
+.tooltip-cover2:hover .tooltiptext2 {
     visibility: visible;
 }
 </style>
