@@ -1,40 +1,44 @@
 <template>
     <div class="row" style="color: #eee;">
         <div v-if="!error" class="col-lg-3">
-            <div class="circleDiv">
+            <div class="circleDiv tooltip-cover">
                 {{ nFormatter(downloadCounts.totalDownloads, 3) }}
+                <span class="tooltiptext">{{ commasFormatter(downloadCounts.totalDownloads) }}</span>
             </div>
             <h2 class="downloads_title">{{ $t("downloads_count_total") }}</h2>
         </div>
 
         <div v-if="!error" class="col-lg-3">
-            <div class="circleDiv">
+            <div class="circleDiv tooltip-cover">
                 {{ nFormatter(downloadCounts.monthlyDownloads, 3) }}
+                <span class="tooltiptext">{{ commasFormatter(downloadCounts.monthlyDownloads) }}</span>
             </div>
             <h2 class="downloads_title">{{ $t("downloads_count_monthly") }}</h2>
         </div>
 
         <div v-if="!error" class="col-lg-3">
-            <div class="circleDiv">
+            <div class="circleDiv tooltip-cover">
                 {{ nFormatter(downloadCounts.weeklyDownloads, 3) }}
+                <span class="tooltiptext">{{ commasFormatter(downloadCounts.weeklyDownloads) }}</span>
             </div>
             <h2 class="downloads_title">{{ $t("downloads_count_weekly") }}</h2>
         </div>
 
         <div v-if="!error" class="col-lg-3">
-            <div class="circleDiv">
+            <div class="circleDiv tooltip-cover">
                 {{ nFormatter(downloadCounts.dailyDownloads, 3) }}
+                <span class="tooltiptext"> {{ commasFormatter(downloadCounts.dailyDownloads) }} </span>
             </div>
             <h2 class="downloads_title">{{ $t("downloads_count_daily") }}</h2>
         </div>
 
         <div v-if="error" class="col-lg-12">
-            <i class="fa fa-exclamation-triangle" aria-hidden="true" style="font-size: 32px; color: #F33;"></i> <br/>
+            <i class="fa fa-exclamation-triangle" aria-hidden="true" style="font-size: 32px; color: #F33;"></i> <br />
             <span style="font-size: 20px;">
                 {{ $t("downloads_error_statistic") }}
                 <a href="https://github.com/gkbm2013/tinker-IO/issues">{{ $t("downloads_error_statistic_report") }}</a>
             </span>
-            <br/>
+            <br />
             <span style="font-size: 16px;">
                 {{ `${$t("downloads_error_statistic_error_msg")} ${errorMessage}` }}
             </span>
@@ -73,7 +77,7 @@ export default {
             errorMessage: "",
         };
     },
-    
+
     mounted() {
         GSheetReader({
             apiKey: this.apiKey,
@@ -112,7 +116,62 @@ export default {
                 return num >= item.value;
             });
             return item ? (num / item.value).toFixed(digits).replace(rx, "$1") + item.symbol : "0";
+        },
+        commasFormatter(num) {
+            try {
+                num = parseInt(num);
+            } catch (e) {
+                return num;
+            }
+            const numStr = num.toString();
+            let result = "";
+            for (let j = 0; j < numStr.length; j++) {
+                const i = numStr.length - 1 - j;
+                if (j !== 0 && j % 3 === 0) {
+                    result = "," + result;
+                }
+                result = numStr.charAt(i) + result;
+            }
+            return result;
         }
     },
 }
 </script>
+
+<style>
+.tooltip-cover {
+    position: relative !important;
+}
+
+.tooltip-cover .tooltiptext {
+    font-size: 16px;
+    line-height: 16px;
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    top: 75%;
+    left: 50%;
+    margin-left: -60px;
+}
+
+.tooltip-cover .tooltiptext::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent black;
+}
+
+.tooltip-cover:hover .tooltiptext {
+    visibility: visible;
+}
+</style>
