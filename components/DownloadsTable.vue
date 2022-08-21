@@ -182,8 +182,7 @@ export default {
     font-size: 16px;
     line-height: 18px;
     visibility: hidden;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 10px;
     background-color: black;
     color: #fff;
     text-align: center;
