@@ -83,7 +83,7 @@ export default {
         }, results => {
             const statisticMap = new Map();
             results.forEach(result => {
-                statisticMap.set(result.name, result.value.toLocaleString('en-US'));
+                statisticMap.set(result.name, result.value);
             });
             this.downloadCounts = Object.fromEntries(statisticMap);
         }, error => {
