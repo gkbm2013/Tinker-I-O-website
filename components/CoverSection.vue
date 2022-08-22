@@ -16,7 +16,7 @@
                         <p class="lead">{{$t("index_home_content")}}</p>
                         <p class="lead">
                             <a :href="localePath('downloads')" class="btn btn-lg btn-default">{{$t("btn_downloads")}}</a>
-                            <a href="#features" class="btn btn-lg btn-default">{{$t("btn_features")}}</a>
+                            <a :href="localePath('index') + '#features'" class="btn btn-lg btn-default">{{$t("btn_features")}}</a>
                         </p>
                     </div>
                 </div>
