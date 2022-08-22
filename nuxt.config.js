@@ -83,7 +83,7 @@ export default {
 
   sitemap: {
     hostname: 'https://tio.gkbsite.org',
-    gzip: true,
+    gzip: false,
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
