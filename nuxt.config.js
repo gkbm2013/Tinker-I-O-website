@@ -81,6 +81,11 @@ export default {
     id: 'UA-54046944-3'
   },
 
+  sitemap: {
+    hostname: 'https://tio.gkbsite.org',
+    gzip: true,
+  },
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 }
